@@ -9,5 +9,9 @@ public class HelloUniverse {
         nbPlanetes = 9;
         System.out.println(nbPlanetes);
 
+        float result = 5F/2;
+        float result2 = 5F%2;
+        System.out.println("5/2 = " + result + " et il reste " + result2 );
+
     }
 }
