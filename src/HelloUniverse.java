@@ -46,6 +46,72 @@ while (newNBPlanetes < 10) {
        newNBPlanetes++;
 }
 
+//objet et classe exemple avec Planet
+
+//instanciation de la classe Planet
+Planet mercury = new Planet();
+mercury.name = "Mercure";
+mercury.matter = "tellurique";
+mercury.diameter = 4880;
+
+Planet venus = new Planet();
+venus.name = "Venus";
+venus.matter = "tellurique";
+venus.diameter = 12104;
+
+Planet earth = new Planet();
+earth.name = "Terre";
+earth.matter = "tellurique";
+earth.diameter = 12742;
+
+Planet mars = new Planet();
+mars.name = "Mars";
+mars.matter = "tellurique";
+mars.diameter = 6779;
+
+Planet jupiter = new Planet();
+jupiter.name = "Jupiter";
+jupiter.matter = "gazeuse";
+jupiter.diameter = 142984;
+
+Planet saturn = new Planet();
+saturn.name = "Saturne";
+saturn.matter = "gazeuse";
+saturn.diameter = 120536;
+
+Planet uranus = new Planet();
+uranus.name = "Uranus";
+uranus.matter = "gazeuse";
+uranus.diameter = 51118;
+
+Planet neptune = new Planet();
+neptune.name = "Neptune";
+neptune.matter = "gazeuse";
+neptune.diameter = 49528;
+
+System.out.println(jupiter.name + " est une planète " + jupiter.matter + " avec un diamètre de " + jupiter.diameter + " km");
+
+Planet unknown = new Planet();
+
+System.out.println(unknown.name + " est une planète " + unknown.matter + " avec un diamètre de " + unknown.diameter + " km");
+
+//appel des méthodes de la classe Planet
+int marsTurn = mars.rotation(-684);
+System.out.println(mars.name + " a tourné " + marsTurn + " fois sur elle-même");
+
+int neptuneTurn = neptune.revolution(-3542);
+System.out.println(neptune.name + " a tourné " + neptuneTurn + " fois autour de son étoile");
+
+int venusTurn = venus.rotation(1250);
+System.out.println(venus.name + " a tourné " + venusTurn + " fois sur elle-même");
+
+//surcharge de méthode
+mars.welcomeSpaceship(8);
+mars.welcomeSpaceship("FREGATE");
+System.out.println("Le nombre d'humains ayant déjà séjourné sur "+mars.name+" est actuellement de "+mars.totalVisitors);
+
+
+
 }//end public
 }
 
