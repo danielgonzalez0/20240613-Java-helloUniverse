@@ -106,11 +106,41 @@ int venusTurn = venus.rotation(1250);
 System.out.println(venus.name + " a tourné " + venusTurn + " fois sur elle-même");
 
 //surcharge de méthode
-mars.welcomeSpaceship(8);
-mars.welcomeSpaceship("FREGATE");
+// mars.welcomeSpaceship(8);
+// mars.welcomeSpaceship("FREGATE");
+// System.out.println("Le nombre d'humains ayant déjà séjourné sur "+mars.name+" est actuellement de "+mars.totalVisitors);
+
+//Utiliser des propriétés sous forme d'objet
+Atmosphere uranusAtmosphere = new Atmosphere();
+uranusAtmosphere.hydrogene = 83;
+uranusAtmosphere.helium = 15;
+uranusAtmosphere.methane = 2.5f;
+uranusAtmosphere.nitrogen = 0.5f;
+uranusAtmosphere.argon = 0.01f;
+uranusAtmosphere.carbonDioxide = 0.0001f;
+uranusAtmosphere.sodium = 0.0007f;
+uranus.atmosphere = uranusAtmosphere;
+
+        System.out.println(uranus.name + " est composée :\n");
+        System.out.println("D'hydrogène à " + uranus.atmosphere.hydrogene + "%");
+        System.out.println("D'hélium à " + uranus.atmosphere.helium + "%");
+        System.out.println("De méthane à " + uranus.atmosphere.methane + "%");
+
+//utilisation de la référence d'objet dans les méthodes
+Vaisseau fregate = new Vaisseau();
+fregate.type = "FREGATE";
+fregate.nbPassagers = 9;
+Vaisseau croiseur = new Vaisseau();
+croiseur.type = "CROISEUR";
+croiseur.nbPassagers = 42;
+mars.welcomeSpaceship(fregate);
+mars.welcomeSpaceship(croiseur);
+
 System.out.println("Le nombre d'humains ayant déjà séjourné sur "+mars.name+" est actuellement de "+mars.totalVisitors);
 
-
+//static
+System.out.println("La forme d'une planète est généralement "+Planet.form);
+System.out.println("La forme de "+mars.name+" est "+Planet.form);
 
 }//end public
 }
