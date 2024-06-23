@@ -49,8 +49,7 @@ while (newNBPlanetes < 10) {
 //objet et classe exemple avec Planet
 
 //instanciation de la classe Planet
-Planet mercury = new Planet();
-mercury.name = "Mercure";
+Planet mercury = new Planet("Mercure");
 mercury.matter = "tellurique";
 mercury.diameter = 4880;
 
@@ -141,6 +140,31 @@ System.out.println("Le nombre d'humains ayant déjà séjourné sur "+mars.name+
 //static
 System.out.println("La forme d'une planète est généralement "+Planet.form);
 System.out.println("La forme de "+mars.name+" est "+Planet.form);
+
+System.out.println(Planet.expansion(10.5));
+System.out.println(Planet.expansion(14.2));
+
+System.out.println("Le nombre de planètes découvertes est de "+Planet.nbDiscoveredPlanets);
+
+//hétitage
+VaisseauDeGuerre chasseur = new VaisseauDeGuerre();
+chasseur.type = "CHASSEUR";
+chasseur.shielding = 156;
+chasseur.shieldResistance = 2;
+
+VaisseauCivil vaisseauMonde = new VaisseauCivil();
+vaisseauMonde.type = "VAISSEAU MONDE";
+vaisseauMonde.shielding = 4784;
+vaisseauMonde.shieldResistance = 30;
+
+chasseur.activateShield();
+vaisseauMonde.activateShield();
+
+chasseur.attack(vaisseauMonde, "lasers photoniques", 3);
+vaisseauMonde.desactivateShield();
+System.out.println("Le vaisseau monde a maintenant une durée de protection de " + vaisseauMonde.shieldResistance);
+System.out.println("Le vaisseau monde a maintenant un blindage de " + vaisseauMonde.shielding);
+
 
 }//end public
 }
