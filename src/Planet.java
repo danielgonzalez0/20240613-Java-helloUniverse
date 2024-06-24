@@ -1,11 +1,10 @@
 public class Planet {
 
   String name;
-  String matter;
+  // String matter;
   long diameter;
-  int totalVisitors;
   Atmosphere atmosphere;
-  Vaisseau stockedShip;
+ 
   static String form = "sphérique";
   static int nbDiscoveredPlanets;
 
@@ -52,16 +51,4 @@ public class Planet {
 // }
 // }
 
-Vaisseau welcomeSpaceship(Vaisseau ship){
-
-  if (this.stockedShip == null){
-    System.out.println("Aucun vaisseau ne s'en va");
-  } else {
-    System.out.println("Un vaisseau de type "+this.stockedShip.type+" doit s'en aller");
-  }
-    Vaisseau leavingShip = this.stockedShip;
-    this.totalVisitors += ship.nbPassagers;
-    this.stockedShip = ship;
-    return leavingShip;
-}
 }

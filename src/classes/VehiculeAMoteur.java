@@ -4,6 +4,17 @@ public class VehiculeAMoteur {
  public int currentSpeed;
  public Moteur engine;
 
+//constructeur
+
+public VehiculeAMoteur() {
+}
+
+public VehiculeAMoteur (Moteur engine){
+  this.engine = engine;
+  System.out.println( "Le moteur du vehicule a moteur est à " + engine.carburation);
+}
+
+//methode
   public int accelerate(){
   System.out.println("J'accélère");
   return 100;

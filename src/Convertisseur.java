@@ -1,6 +1,9 @@
 
 import classes.Moteur;
 import classes.Passager;
+import classes.UsineAssemblage;
+import classes.UsineAssemblageVoiture;
+import classes.VehiculeAMoteur;
 import classes.Ville;
 import classes.Voiture;
 
@@ -57,5 +60,33 @@ public static void main(String[] args) {
 
     //static
     System.out.println("Le nombre de roues d'une voiture est de " + Voiture.nbWheels);
+
+    VehiculeAMoteur carMichel = new Voiture();
+    ((Voiture)carMichel).isAutomatic = true;
+    System.out.println("La voiture de Michel est " + (((Voiture)carMichel).isAutomatic? "automatique" : "manuelle"));
+    // Voiture carMichelGoodType = (Voiture) carMichel;
+    // carMichelGoodType.isAutomatic = true;
+    // System.out.println("La voiture de Michel est " + (carMichelGoodType.isAutomatic ? "automatique" : "manuelle"));
+    Voiture carDaniel =new Voiture (engine);
+    System.out.println("La voiture de Daniel est " + (carDaniel.engine.carburation));
+
+    // covariance des méthodes
+    UsineAssemblage usine = new UsineAssemblage();
+    VehiculeAMoteur vehicule = usine.assemble();
+    UsineAssemblageVoiture usineVoiture = new UsineAssemblageVoiture();
+    System.out.println("Le véhicule assemblé est un " + vehicule.engine.carburation);
+    Voiture voiture = usineVoiture.assemble();
+    System.out.println("La voiture assemblée est de couleur " + voiture.color);
+
+    // polymorphisme sous-typage
+
+    // Voiture peugeot206 = new Voiture();
+    // VehiculeAMoteur peugeot207 = new Voiture();
+    // Vidangeable peugeot208 = new Voiture();
+
+    // peugeot208 a acces uniquement a la methode vidanger
+    // transtypage pourra etre fait pour peugeot208 pour acceder aux autres methodes de Voiture
+    // c'est grâce au polymorphisme que l'on peut faire cela
+    
 }
 }

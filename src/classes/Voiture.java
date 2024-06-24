@@ -1,6 +1,8 @@
 package classes;
 
-public class Voiture extends VehiculeAMoteur {
+import interfaces.Vidangeable;
+
+public class Voiture extends VehiculeAMoteur implements Vidangeable{
 
  public int nbDoors = 5;
  public boolean isAutomatic;
@@ -11,12 +13,16 @@ public class Voiture extends VehiculeAMoteur {
  public static int nbWheels = 4;
 
 public Voiture() {
+  super();
 }
 
 public Voiture(String color) {
    this.color = color;
 }
-  
+
+public Voiture (Moteur engine){
+super(engine);
+}
 
  
 
@@ -44,4 +50,9 @@ public void turn(boolean right, int angle){
 public void turn(String rightOrLeft, int angle){
   System.out.println("Je tourne vers la " + rightOrLeft + " à un angle de " + angle + " degrés");
 }
+
+    @Override
+    public void vidanger() {
+        System.out.println("Dévissez le bouchon sous la culasse et attendez que l'huile s'écoule. Remettez le bouchon et versez de l'huile neuve.");
+    }
 }

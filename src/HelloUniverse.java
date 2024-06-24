@@ -49,50 +49,42 @@ while (newNBPlanetes < 10) {
 //objet et classe exemple avec Planet
 
 //instanciation de la classe Planet
-Planet mercury = new Planet("Mercure");
-mercury.matter = "tellurique";
+PlaneteTellurique mercury = new PlaneteTellurique("Mercure");
 mercury.diameter = 4880;
 
-Planet venus = new Planet();
+PlaneteTellurique venus = new PlaneteTellurique();
 venus.name = "Venus";
-venus.matter = "tellurique";
 venus.diameter = 12104;
 
-Planet earth = new Planet();
+PlaneteTellurique earth = new PlaneteTellurique();
 earth.name = "Terre";
-earth.matter = "tellurique";
 earth.diameter = 12742;
 
-Planet mars = new Planet();
+PlaneteTellurique mars = new PlaneteTellurique();
 mars.name = "Mars";
-mars.matter = "tellurique";
 mars.diameter = 6779;
 
-Planet jupiter = new Planet();
+PlaneteGazeuse jupiter = new PlaneteGazeuse();
 jupiter.name = "Jupiter";
-jupiter.matter = "gazeuse";
 jupiter.diameter = 142984;
 
-Planet saturn = new Planet();
+PlaneteGazeuse saturn = new PlaneteGazeuse();
 saturn.name = "Saturne";
-saturn.matter = "gazeuse";
 saturn.diameter = 120536;
 
-Planet uranus = new Planet();
+PlaneteGazeuse uranus = new PlaneteGazeuse();
 uranus.name = "Uranus";
-uranus.matter = "gazeuse";
 uranus.diameter = 51118;
 
-Planet neptune = new Planet();
+PlaneteGazeuse neptune = new PlaneteGazeuse();
 neptune.name = "Neptune";
-neptune.matter = "gazeuse";
 neptune.diameter = 49528;
 
-System.out.println(jupiter.name + " est une planète " + jupiter.matter + " avec un diamètre de " + jupiter.diameter + " km");
+System.out.println(jupiter.name + " est une planète " + jupiter.MATTER + " avec un diamètre de " + jupiter.diameter + " km");
 
-Planet unknown = new Planet();
+// Planet unknown = new Planet();
 
-System.out.println(unknown.name + " est une planète " + unknown.matter + " avec un diamètre de " + unknown.diameter + " km");
+// System.out.println(unknown.name + " est une planète " + unknown.matter + " avec un diamètre de " + unknown.diameter + " km");
 
 //appel des méthodes de la classe Planet
 int marsTurn = mars.rotation(-684);
@@ -135,6 +127,7 @@ croiseur.nbPassagers = 42;
 mars.welcomeSpaceship(fregate);
 mars.welcomeSpaceship(croiseur);
 
+
 System.out.println("Le nombre d'humains ayant déjà séjourné sur "+mars.name+" est actuellement de "+mars.totalVisitors);
 
 //static
@@ -147,23 +140,26 @@ System.out.println(Planet.expansion(14.2));
 System.out.println("Le nombre de planètes découvertes est de "+Planet.nbDiscoveredPlanets);
 
 //hétitage
-VaisseauDeGuerre chasseur = new VaisseauDeGuerre();
+Vaisseau chasseur = new VaisseauDeGuerre();
 chasseur.type = "CHASSEUR";
 chasseur.shielding = 156;
 chasseur.shieldResistance = 2;
 
-VaisseauCivil vaisseauMonde = new VaisseauCivil();
+Vaisseau vaisseauMonde = new VaisseauCivil();
 vaisseauMonde.type = "VAISSEAU MONDE";
 vaisseauMonde.shielding = 4784;
 vaisseauMonde.shieldResistance = 30;
 
-chasseur.activateShield();
+((VaisseauDeGuerre)chasseur).activateShield();
 vaisseauMonde.activateShield();
 
-chasseur.attack(vaisseauMonde, "lasers photoniques", 3);
+((VaisseauDeGuerre)chasseur).attack(vaisseauMonde, "lasers photoniques", 3);
 vaisseauMonde.desactivateShield();
 System.out.println("Le vaisseau monde a maintenant une durée de protection de " + vaisseauMonde.shieldResistance);
 System.out.println("Le vaisseau monde a maintenant un blindage de " + vaisseauMonde.shielding);
+
+mars.welcomeSpaceship(chasseur);
+mars.welcomeSpaceship(vaisseauMonde);
 
 
 }//end public
