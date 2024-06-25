@@ -4,6 +4,7 @@ import classes.Passager;
 import classes.UsineAssemblage;
 import classes.UsineAssemblageVoiture;
 import classes.VehiculeAMoteur;
+import classes.Velo;
 import classes.Ville;
 import classes.Voiture;
 
@@ -87,6 +88,10 @@ public static void main(String[] args) {
     // peugeot208 a acces uniquement a la methode vidanger
     // transtypage pourra etre fait pour peugeot208 pour acceder aux autres methodes de Voiture
     // c'est grâce au polymorphisme que l'on peut faire cela
+
+    //abstract class
+    Velo bike = new Velo();
+    bike.klaxonner();
     
 }
 }

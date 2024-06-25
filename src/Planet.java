@@ -1,4 +1,4 @@
-public class Planet {
+public abstract class Planet {
 
   String name;
   // String matter;

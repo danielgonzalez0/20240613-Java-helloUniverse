@@ -118,14 +118,14 @@ uranus.atmosphere = uranusAtmosphere;
         System.out.println("De méthane à " + uranus.atmosphere.methane + "%");
 
 //utilisation de la référence d'objet dans les méthodes
-Vaisseau fregate = new Vaisseau();
-fregate.type = "FREGATE";
-fregate.nbPassagers = 9;
-Vaisseau croiseur = new Vaisseau();
-croiseur.type = "CROISEUR";
-croiseur.nbPassagers = 42;
-mars.welcomeSpaceship(fregate);
-mars.welcomeSpaceship(croiseur);
+// Vaisseau fregate = new Vaisseau();
+// fregate.type = "FREGATE";
+// fregate.nbPassagers = 9;
+// Vaisseau croiseur = new Vaisseau();
+// croiseur.type = "CROISEUR";
+// croiseur.nbPassagers = 42;
+// mars.welcomeSpaceship(fregate);
+// mars.welcomeSpaceship(croiseur);
 
 
 System.out.println("Le nombre d'humains ayant déjà séjourné sur "+mars.name+" est actuellement de "+mars.totalVisitors);
@@ -140,26 +140,56 @@ System.out.println(Planet.expansion(14.2));
 System.out.println("Le nombre de planètes découvertes est de "+Planet.nbDiscoveredPlanets);
 
 //hétitage
-Vaisseau chasseur = new VaisseauDeGuerre();
-chasseur.type = "CHASSEUR";
+// Vaisseau chasseur = new VaisseauDeGuerre();
+// chasseur.type = "CHASSEUR";
+// chasseur.shielding = 156;
+// chasseur.shieldResistance = 2;
+
+// Vaisseau vaisseauMonde = new VaisseauCivil();
+// vaisseauMonde.type = "VAISSEAU MONDE";
+// vaisseauMonde.shielding = 4784;
+// vaisseauMonde.shieldResistance = 30;
+
+// ((VaisseauDeGuerre)chasseur).activateShield();
+// vaisseauMonde.activateShield();
+
+// ((VaisseauDeGuerre)chasseur).attack(vaisseauMonde, "lasers photoniques", 3);
+// vaisseauMonde.desactivateShield();
+// System.out.println("Le vaisseau monde a maintenant une durée de protection de " + vaisseauMonde.shieldResistance);
+// System.out.println("Le vaisseau monde a maintenant un blindage de " + vaisseauMonde.shielding);
+
+VaisseauDeGuerre chasseur = new VaisseauDeGuerre("CHASSEUR");
 chasseur.shielding = 156;
 chasseur.shieldResistance = 2;
 
-Vaisseau vaisseauMonde = new VaisseauCivil();
-vaisseauMonde.type = "VAISSEAU MONDE";
+VaisseauCivil vaisseauMonde = new VaisseauCivil("VAISSEAU MONDE");
+// vaisseauMonde.type = "VAISSEAU MONDE";
 vaisseauMonde.shielding = 4784;
 vaisseauMonde.shieldResistance = 30;
 
-((VaisseauDeGuerre)chasseur).activateShield();
-vaisseauMonde.activateShield();
-
-((VaisseauDeGuerre)chasseur).attack(vaisseauMonde, "lasers photoniques", 3);
-vaisseauMonde.desactivateShield();
-System.out.println("Le vaisseau monde a maintenant une durée de protection de " + vaisseauMonde.shieldResistance);
-System.out.println("Le vaisseau monde a maintenant un blindage de " + vaisseauMonde.shielding);
-
 mars.welcomeSpaceship(chasseur);
 mars.welcomeSpaceship(vaisseauMonde);
+
+//methode abstraite et classe abstraite
+earth.welcomeSpaceship(chasseur);
+chasseur.carryCargo(20);
+
+VaisseauDeGuerre fregate = new VaisseauDeGuerre("FREGATE");
+fregate.nbPassagers = 100;
+earth.welcomeSpaceship(fregate);
+int fregateQuantiteRefusee = fregate.carryCargo(45);
+System.out.println("La quantité de marchandises refusée est de " + fregateQuantiteRefusee);
+fregate.carryCargo(12);
+VaisseauDeGuerre fregate2 = new VaisseauDeGuerre("FREGATE");
+fregate2.nbPassagers = 14;
+earth.welcomeSpaceship(fregate2);
+fregate2.carryCargo(30);
+VaisseauCivil vaisseauMonde2 = new VaisseauCivil("VAISSEAU MONDE");
+earth.welcomeSpaceship(vaisseauMonde2);
+int qterefusee = vaisseauMonde2.carryCargo(1560);
+System.out.println("La quantité de marchandises refusée est de " + qterefusee);
+vaisseauMonde2.carryCargo(600);
+
 
 
 }//end public
