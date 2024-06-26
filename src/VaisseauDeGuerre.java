@@ -10,12 +10,12 @@ Boolean isWeaponDesactivated = false;
 VaisseauDeGuerre(){
 }
 
-VaisseauDeGuerre(String type){
+VaisseauDeGuerre(TypeVaisseau type){
 this.type = type;
 switch (type) {
-  case "CHASSEUR"-> this.maxCargoWeight = 0;
-  case "FREGATE"-> this.maxCargoWeight = 50;
-  case "CROISEUR"-> this.maxCargoWeight = 200;
+  case CHASSEUR-> this.maxCargoWeight = 0;
+  case FREGATE-> this.maxCargoWeight = 50;
+  case CROISEUR-> this.maxCargoWeight = 200;
 default -> this.maxCargoWeight = 0;
 }
 }

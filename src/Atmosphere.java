@@ -1,9 +1,9 @@
 public class Atmosphere {
-float hydrogene;
-float methane;
-float nitrogen;
-float helium;
-float argon;
-float carbonDioxide;
-float sodium;
+Float hydrogene;
+Float methane;
+Float nitrogen;
+Float helium;
+Float argon;
+Float carbonDioxide;
+Float sodium;
 }

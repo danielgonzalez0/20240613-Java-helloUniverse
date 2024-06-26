@@ -4,13 +4,17 @@ import interfaces.Vidangeable;
 
 public class Voiture extends VehiculeAMoteur implements Vidangeable{
 
+  public static int nbWheels = 4;
+
+
  public int nbDoors = 5;
  public boolean isAutomatic;
+  public BoiteVitesse typeBoite;
  public String color;
  public char firstLetterImmat;
  public int currentGear;
 
- public static int nbWheels = 4;
+
 
 public Voiture() {
   super();

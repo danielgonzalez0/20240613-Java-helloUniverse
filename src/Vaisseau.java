@@ -1,5 +1,5 @@
 public abstract class Vaisseau {
-String type;
+TypeVaisseau type;
 int nbPassagers;
 int shielding;
 int shieldResistance;

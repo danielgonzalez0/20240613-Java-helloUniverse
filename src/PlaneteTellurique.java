@@ -6,7 +6,7 @@ public class PlaneteTellurique extends Planet implements Habitable {
   //constructeur
   public PlaneteTellurique(){
     super();
-    System.out.println("Une nouvelle planète " + this.MATTER + " a été découverte");
+    // System.out.println("Une nouvelle planète " + this.MATTER + " a été découverte");
   }
 
   public PlaneteTellurique(String name){
@@ -25,8 +25,14 @@ public class PlaneteTellurique extends Planet implements Habitable {
     System.out.println("Un vaisseau de type "+this.stockedShip.type+" doit s'en aller");
   }
     Vaisseau leavingShip = this.stockedShip;
-    this.totalVisitors += ship.nbPassagers;
+    if(ship != null && ship.nbPassagers > 0) {
+        this.totalVisitors += ship.nbPassagers;
+    }
     this.stockedShip = ship;
     return leavingShip;
+    }
+
+    public String getMATTER() {
+        return MATTER;
     }
 }
