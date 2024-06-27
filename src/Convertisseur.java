@@ -56,8 +56,8 @@ public static void main(String[] args) {
     passager.lastName = "Dupont";
     Ville rennes = new Ville();
     rennes.name = "Rennes";
-    Ville destination = car2.transport(passager, rennes);
-    System.out.println("Le passager est arrivé à " + destination.name);
+    // Ville destination = car2.transport(passager, rennes);
+    // System.out.println("Le passager est arrivé à " + destination.name);
 
     //static
     System.out.println("Le nombre de roues d'une voiture est de " + Voiture.nbWheels);

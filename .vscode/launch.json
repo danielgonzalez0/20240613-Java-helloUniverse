@@ -1,0 +1,50 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "HelloUniverse2",
+      "request": "launch",
+      "mainClass": "HelloUniverse2",
+      "projectName": "HelloUniverse_b6e435a2"
+    },
+    {
+      "type": "java",
+      "name": "ClassesEtTechniquesUtilitaires",
+      "request": "launch",
+      "mainClass": "classesEtTechniquesUtilitaires.ClassesEtTechniquesUtilitaires",
+      "projectName": "HelloUniverse_b6e435a2"
+    },
+    {
+      "type": "java",
+      "name": "ExemplesConcatenation",
+      "request": "launch",
+      "mainClass": "operateurs.ExemplesConcatenation.ExemplesConcatenation",
+      "projectName": "HelloUniverse_b6e435a2"
+    },
+    {
+      "type": "java",
+      "name": "ExemplesIncrementation",
+      "request": "launch",
+      "mainClass": "operateurs.ExemplesIncrementation",
+      "projectName": "HelloUniverse_b6e435a2"
+    },
+    {
+      "type": "java",
+      "name": "Structures",
+      "request": "launch",
+      "mainClass": "structuresDeControles.Structures",
+      "projectName": "HelloUniverse_b6e435a2"
+    },
+    {
+      "type": "java",
+      "name": "TableauxEtCollections",
+      "request": "launch",
+      "mainClass": "tableauxEtCollections.TableauxEtCollections",
+      "projectName": "HelloUniverse_b6e435a2"
+    }
+  ]
+}

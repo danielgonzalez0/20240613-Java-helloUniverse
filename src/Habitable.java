@@ -1,5 +1,5 @@
 public interface Habitable {
 
-  public Vaisseau welcomeSpaceship(Vaisseau ship);
+  public void welcomeSpaceship(Vaisseau...ship);
 
 }

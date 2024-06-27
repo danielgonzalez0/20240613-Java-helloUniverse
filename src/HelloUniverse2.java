@@ -4,19 +4,16 @@ import java.util.Scanner;
 public class HelloUniverse2 {
   public static void main(String[] args) {
     // instanciation de la classe Planet
-    PlaneteTellurique mercure = new PlaneteTellurique("Mercure");
+    PlaneteTellurique mercure = new PlaneteTellurique("Mercure", 0);
     mercure.diameter = 4880;
 
-    PlaneteTellurique venus = new PlaneteTellurique();
-    venus.name = "Venus";
+    PlaneteTellurique venus = new PlaneteTellurique("Venus", 1);
     venus.diameter = 12104;
 
-    PlaneteTellurique terre = new PlaneteTellurique();
-    terre.name = "Terre";
+    PlaneteTellurique terre = new PlaneteTellurique("Terre", 3);
     terre.diameter = 12742;
 
-    PlaneteTellurique mars = new PlaneteTellurique();
-    mars.name = "Mars";
+    PlaneteTellurique mars = new PlaneteTellurique("Mars", 4);
     mars.diameter = 6779;
 
     PlaneteGazeuse jupiter = new PlaneteGazeuse();
@@ -44,61 +41,76 @@ public class HelloUniverse2 {
     VaisseauCivil cargo = new VaisseauCivil(TypeVaisseau.CARGO);
     VaisseauCivil vaisseauMonde = new VaisseauCivil(TypeVaisseau.VAISSEAU_MONDE);
 
-    System.out.println("Quel vaisseau souhaitez-vous manipuler parmi les vaisseaux suivants : " + chasseur.type.nomTypeVaisseau + ", "
-        + fregate.type.nomTypeVaisseau + ", " + croiseur.type.nomTypeVaisseau + ", " + cargo.type.nomTypeVaisseau + ", " + vaisseauMonde.type.nomTypeVaisseau);
+    boolean recommencer = true;
+    Scanner sc = new Scanner(System.in);
 
-    // objet scanner
-    try (Scanner sc = new Scanner(System.in)) {
-      String vaisseauChoisi = sc.nextLine().toLowerCase();
-      // Rest of the code
+    while (recommencer) {
 
-      // switch
-      Vaisseau vaisseau = null;
-      switch (vaisseauChoisi) {
-      case "chasseur" -> vaisseau = chasseur;
-      case "fregate" -> vaisseau = fregate;
-      case "croiseur" -> vaisseau = croiseur;
-      case "cargo" -> vaisseau = cargo;
-      case "vaisseau monde" -> vaisseau = vaisseauMonde;
-      default -> {
-        System.out.println("Le vaisseau choisi n'existe pas");
-        System.exit(1);
-      }
-      }
-      if (vaisseau != null) {
-        System.out.println("Vous avez choisi le vaisseau " + vaisseau.type.nomTypeVaisseau);
-      }
+        System.out.println("Quel vaisseau souhaitez-vous manipuler parmi les vaisseaux suivants : "
+            + chasseur.type.nomTypeVaisseau + ", " + fregate.type.nomTypeVaisseau + ", " + croiseur.type.nomTypeVaisseau
+            + ", " + cargo.type.nomTypeVaisseau + ", " + vaisseauMonde.type.nomTypeVaisseau);
+            
+        String vaisseauChoisi = sc.nextLine().toLowerCase();
+        // Rest of the code
 
-      System.out.println("Sur quelle planète tellurique souhaitez-vous-vous poser parmi les planètes suivantes : "
-          + mercure.name + ", " + venus.name + ", " + terre.name + ", " + mars.name);
-      String planeteChoisie = sc.nextLine().toLowerCase();
-      // switch
-      PlaneteTellurique planete = null;
-      switch (planeteChoisie) {
-      case "mercure" -> planete = mercure;
-      case "venus" -> planete = venus;
-      case "terre" -> planete = terre;
-      case "mars" -> planete = mars;
-      default -> {
-        System.out.println("La planète choisie n'est pas une planète tellurique");
-        System.exit(1);
-      }
-      }
-      if (planete != null) {
-        System.out.println("Vous avez choisi la planète " + planete.name);
-      }
+        // switch
+        Vaisseau vaisseau = null;
+        switch (vaisseauChoisi) {
+        case "chasseur" -> vaisseau = chasseur;
+        case "fregate" -> vaisseau = fregate;
+        case "croiseur" -> vaisseau = croiseur;
+        case "cargo" -> vaisseau = cargo;
+        case "vaisseau monde" -> vaisseau = vaisseauMonde;
+        default -> {
+          System.out.println("Le vaisseau choisi n'existe pas");
+          System.exit(1);
+        }
+        }
+        if (vaisseau != null) {
+          System.out.println("Vous avez choisi le vaisseau " + vaisseau.type.nomTypeVaisseau);
+        }
 
-      System.out.println("Quelle tonnage de cargaison souhaitez-vous transporter ?");
-      int tonnage = sc.nextInt();
-      System.out.println("Vous avez choisi de transporter " + tonnage + " tonnes de cargaison");
+        System.out.println("Sur quelle planète tellurique souhaitez-vous-vous poser parmi les planètes suivantes : "
+            + mercure.name + ", " + venus.name + ", " + terre.name + ", " + mars.name);
+        String planeteChoisie = sc.nextLine().toLowerCase();
+        // switch
+        PlaneteTellurique planete = null;
+        switch (planeteChoisie) {
+        case "mercure" -> planete = mercure;
+        case "venus" -> planete = venus;
+        case "terre" -> planete = terre;
+        case "mars" -> planete = mars;
+        default -> {
+          System.out.println("La planète choisie n'est pas une planète tellurique");
+          System.exit(1);
+        }
+        }
+        if (planete != null) {
+          System.out.println("Vous avez choisi la planète " + planete.name);
+        }
 
-      planete.welcomeSpaceship(vaisseau);
-      vaisseau.carryCargo(tonnage);
-      System.out.println(
-          "Le vaisseau " + vaisseau.type.nomTypeVaisseau + " a maintenant une cargaison de " + vaisseau.currentCargoWeight + " tonnes");
-      System.out.println("le tonnage rejeté est de " + vaisseau.carryCargo(tonnage) + " tonnes");
+        System.out.println("Quelle tonnage de cargaison souhaitez-vous transporter ?");
+        int tonnage = sc.nextInt();
+        sc.nextLine();
 
-    } // end try
+        System.out.println("Vous avez choisi de transporter " + tonnage + " tonnes de cargaison");
+
+ 
+        planete.welcomeSpaceship(vaisseau);
+        
+        
+        System.out.println("Voulez-vous recommencer oui/non ?");
+        recommencer = sc.nextLine().equals("oui");
+        // vaisseau.carryCargo(tonnage);
+        // System.out.println(
+        // "Le vaisseau " + vaisseau.type.nomTypeVaisseau + " a maintenant une cargaison
+        // de " + vaisseau.currentCargoWeight + " tonnes");
+        // System.out.println("le tonnage rejeté est de " + vaisseau.carryCargo(tonnage)
+        // + " tonnes");
+
+      }
+      sc.close();
+   
 
   }/* end of main */
 }

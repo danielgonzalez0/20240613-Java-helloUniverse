@@ -49,7 +49,7 @@ public class HelloUniverse {
         // objet et classe exemple avec Planet
 
         // instanciation de la classe Planet
-        PlaneteTellurique mercury = new PlaneteTellurique("Mercure");
+        PlaneteTellurique mercury = new PlaneteTellurique("Mercure", 4);
         mercury.diameter = 4880;
 
         PlaneteTellurique venus = new PlaneteTellurique();
@@ -204,11 +204,12 @@ public class HelloUniverse {
         System.out.println("La quantité de marchandises refusée est de " + fregateQuantiteRefusee);
         fregate.carryCargo(12);
         VaisseauDeGuerre fregate2 = new VaisseauDeGuerre(TypeVaisseau.FREGATE);
-        fregate2.nbPassagers = 14;
-        earth.welcomeSpaceship(fregate2);
-        fregate2.carryCargo(30);
         VaisseauCivil vaisseauMonde2 = new VaisseauCivil(TypeVaisseau.VAISSEAU_MONDE);
-        earth.welcomeSpaceship(vaisseauMonde2);
+        fregate2.nbPassagers = 14;
+        System.out.println("---------------------");
+        earth.welcomeSpaceship(fregate2, vaisseauMonde2);
+        // earth.welcomeSpaceship(vaisseauMonde2);
+        fregate2.carryCargo(30);
         int qterefusee = vaisseauMonde2.carryCargo(1560);
         System.out.println("La quantité de marchandises refusée est de " + qterefusee);
         vaisseauMonde2.carryCargo(600);

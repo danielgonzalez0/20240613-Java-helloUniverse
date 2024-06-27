@@ -26,11 +26,12 @@ public VehiculeAMoteur (Moteur engine){
   return newSpeed;
  }
 
- public Ville transport(Passager passager, Ville villeDepart){
+ public Ville transport(Passager passager, Ville villeDepart, Ville...villesEtapes){
   Ville destination = new Ville();
   destination.name = "Paris";
   System.out.println("Je transporte " + passager.firstName + " " + passager.lastName);
   System.out.println("Le passager est partie de "+ villeDepart.name);
+  System.out.println("La première étape est " + villesEtapes[0].name);
   return destination;
 
 
