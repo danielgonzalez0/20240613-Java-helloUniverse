@@ -2,7 +2,7 @@ package classes;
 
 import interfaces.Vidangeable;
 
-public class Voiture extends VehiculeAMoteur implements Vidangeable{
+public class Voiture extends VehiculeAMoteur implements Vidangeable {
 
   public static int nbWheels = 4;
 
@@ -59,4 +59,6 @@ public void turn(String rightOrLeft, int angle){
     public void vidanger() {
         System.out.println("Dévissez le bouchon sous la culasse et attendez que l'huile s'écoule. Remettez le bouchon et versez de l'huile neuve.");
     }
+
+  
 }

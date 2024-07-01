@@ -3,34 +3,43 @@ import java.util.Scanner;
 
 public class HelloUniverse2 {
   public static void main(String[] args) {
+
+    Galaxy solarSystem = new Galaxy();
+    solarSystem.name = "Système solaire";
+    
+
+
     // instanciation de la classe Planet
     PlaneteTellurique mercure = new PlaneteTellurique("Mercure", 0);
     mercure.diameter = 4880;
-
+    solarSystem.planets.add(mercure);
     PlaneteTellurique venus = new PlaneteTellurique("Venus", 1);
     venus.diameter = 12104;
-
+    solarSystem.planets.add(venus);
     PlaneteTellurique terre = new PlaneteTellurique("Terre", 3);
     terre.diameter = 12742;
-
+    solarSystem.planets.add(terre);
     PlaneteTellurique mars = new PlaneteTellurique("Mars", 4);
     mars.diameter = 6779;
-
+    solarSystem.planets.add(mars);
     PlaneteGazeuse jupiter = new PlaneteGazeuse();
     jupiter.name = "Jupiter";
     jupiter.diameter = 142984;
-
+    solarSystem.planets.add(jupiter);
     PlaneteGazeuse saturn = new PlaneteGazeuse();
     saturn.name = "Saturne";
     saturn.diameter = 120536;
-
+    solarSystem.planets.add(saturn);
     PlaneteGazeuse uranus = new PlaneteGazeuse();
     uranus.name = "Uranus";
     uranus.diameter = 51118;
-
+    solarSystem.planets.add(uranus);
     PlaneteGazeuse neptune = new PlaneteGazeuse();
     neptune.name = "Neptune";
     neptune.diameter = 49528;
+    solarSystem.planets.add(neptune);
+
+
 
     VaisseauDeGuerre chasseur = new VaisseauDeGuerre(TypeVaisseau.CHASSEUR);
     chasseur.nbPassagers = 15;
@@ -70,21 +79,31 @@ public class HelloUniverse2 {
           System.out.println("Vous avez choisi le vaisseau " + vaisseau.type.nomTypeVaisseau);
         }
 
+        // System.out.println("Sur quelle planète tellurique souhaitez-vous-vous poser parmi les planètes suivantes : "
+        //     + mercure.name + ", " + venus.name + ", " + terre.name + ", " + mars.name + "choix: 1,2,3,4");
+        // int planeteChoisie = sc.nextInt();
+        // sc.nextLine();
+        // switch
+
+        // Planet p = solarSystem.planets.get(planeteChoisie - 1);
+
         System.out.println("Sur quelle planète tellurique souhaitez-vous-vous poser parmi les planètes suivantes : "
             + mercure.name + ", " + venus.name + ", " + terre.name + ", " + mars.name);
         String planeteChoisie = sc.nextLine().toLowerCase();
-        // switch
-        PlaneteTellurique planete = null;
-        switch (planeteChoisie) {
-        case "mercure" -> planete = mercure;
-        case "venus" -> planete = venus;
-        case "terre" -> planete = terre;
-        case "mars" -> planete = mars;
-        default -> {
-          System.out.println("La planète choisie n'est pas une planète tellurique");
-          System.exit(1);
+        Planet p = null;
+        for (Planet planet : solarSystem.planets) {
+          if (planet.name.toLowerCase().equals(planeteChoisie)) {
+            p = planet;
+            break;
+          }
         }
+
+        if(p instanceof PlaneteGazeuse || p == null){
+            System.out.println("La planète choisie n'est pas une planète tellurique, recommencer");
+            continue;
         }
+        PlaneteTellurique planete = (PlaneteTellurique) p;
+        
         if (planete != null) {
           System.out.println("Vous avez choisi la planète " + planete.name);
         }

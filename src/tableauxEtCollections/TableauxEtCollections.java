@@ -1,10 +1,19 @@
 package tableauxEtCollections;
 
+import classes.Carre;
 import classes.Passager;
 import classes.Ville;
 import classes.Voiture;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
+import java.util.TreeSet;
 
 public class TableauxEtCollections {
   public static void main(String[] args) {
@@ -53,7 +62,7 @@ public class TableauxEtCollections {
     // collections
     // List
 
-    List<Voiture>list = new ArrayList<>();
+    List<Voiture> list = new ArrayList<>();
     list.add(peugeot206);
     list.add(peugeot206);
     list.add(peugeot206);
@@ -63,5 +72,105 @@ public class TableauxEtCollections {
     Voiture elVoiture = (Voiture) list.get(1);
     System.out.println("element index 1 = " + elVoiture.color);
 
+    // set
+    Voiture peugeot208 = new Voiture();
+    peugeot208.color = "vert";
+    Voiture peugeot308 = new Voiture();
+    peugeot308.color = "noir";
+    Voiture peugeot408 = new Voiture();
+    peugeot408.color = "bleu";
+
+    Set<Voiture> setVoiture = new HashSet<>();
+    setVoiture.add(peugeot208);
+    setVoiture.add(peugeot308);
+    setVoiture.add(peugeot408);
+
+    System.out.println("la taille de setVoiture est " + setVoiture.size());
+    Voiture setVoitureIndex2 = (Voiture) setVoiture.toArray()[2];
+    System.out.println("la couleur de la voiture est a l'index 2 est " + setVoitureIndex2.color);
+
+    for (Voiture voiture : setVoiture) {
+      System.out.println("la couleur de la voiture est " + voiture.color);
+    }
+
+    Iterator<Voiture> iterator = setVoiture.iterator();
+    while (iterator.hasNext()) {
+      Voiture v = iterator.next();
+      System.out.println("iterator: la couleur de la voiture est " + v.color);
+    }
+
+    // Map
+    Map<String, Voiture> map = new HashMap<>();
+    map.put("208", peugeot208);
+    map.put("308", peugeot308);
+    map.put("408", peugeot408);
+    Voiture voitureCle308 = map.get("308");
+    System.out.println("map : la couleur de la voiture 308 est " + voitureCle308.color);
+
+    for (Map.Entry<String, Voiture> voiture : map.entrySet()) {
+      String cle = voiture.getKey();
+      Voiture valeur = voiture.getValue();
+      System.out.println("map : la couleur de la voiture " + cle + " est " + valeur.color);
+    }
+
+    for (String key : map.keySet()) {
+      System.out.println("map : la cle est " + key);
+    }
+    for (Voiture voiture : map.values()) {
+      System.out.println("map : la couleur de la voiture est " + voiture.color);
+    }
+
+    System.out.println("la map est elle vide ? " + map.isEmpty());
+
+    // trier les collections : ordre naturel des éléments
+    List<Integer> listEntiers = new ArrayList<>();
+    listEntiers.add(5);
+    listEntiers.add(2);
+    listEntiers.add(8);
+    listEntiers.add(1);
+    listEntiers.add(3);
+
+    Collections.sort(listEntiers);
+    for (Integer integer : listEntiers) {
+      System.out.println("listEntiers : " + integer);
+    }
+
+    List<Carre> listCarres = new ArrayList<>();
+    listCarres.add(new Carre(5L));
+    listCarres.add(new Carre(2L));
+    listCarres.add(new Carre(8L));
+    listCarres.add(new Carre(1L));
+
+    Collections.sort(listCarres);
+
+    for (Carre carre : listCarres) {
+      System.out.println("listCarres : " + carre.cote);
+    }
+
+//treeset et treemap
+
+Set<Carre> setCarres = new TreeSet<>();
+setCarres.add(new Carre(5L));
+setCarres.add(new Carre(2L));
+setCarres.add(new Carre(8L));
+setCarres.add(new Carre(1L));
+
+for (Carre carre : setCarres) {
+  System.out.println("setCarres : " + carre.cote);
+}
+
+Map<Carre, Voiture> mapCarres = new TreeMap<>();
+mapCarres.put(new Carre(5L), peugeot206);
+mapCarres.put(new Carre(2L), peugeot208);
+mapCarres.put(new Carre(8L), peugeot308);
+mapCarres.put(new Carre(1L), peugeot408);
+
+for (Map.Entry<Carre, Voiture> carre : mapCarres.entrySet()) {
+  Carre cle = carre.getKey();
+  Voiture valeur = carre.getValue();
+  System.out.println("mapCarres : " + cle.cote + " " + valeur.color);
+}
+
   }
+
 }

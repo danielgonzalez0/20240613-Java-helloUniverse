@@ -1,4 +1,7 @@
 
+import java.util.Map;
+
+
 public class HelloUniverse {
     public static void main(String... args) {
         // String message = "Aux dernieres nouvelles, le nombre total de planetes dans
@@ -104,39 +107,39 @@ public class HelloUniverse {
         // System.out.println("Le nombre d'humains ayant déjà séjourné sur "+mars.name+"
         // est actuellement de "+mars.totalVisitors);
 
-        // Utiliser des propriétés sous forme d'objet
-        Atmosphere uranusAtmosphere = new Atmosphere();
-        uranusAtmosphere.hydrogene = 82f;
-        uranusAtmosphere.helium = 15.5f;
-        uranusAtmosphere.methane = 2.5f;
-        uranusAtmosphere.nitrogen = 0.5f;
-        uranusAtmosphere.argon = 0f;
-        // uranusAtmosphere.carbonDioxide = 0.0001f;
-        // uranusAtmosphere.sodium = 0.0007f;
-        uranus.atmosphere = uranusAtmosphere;
+        // // Utiliser des propriétés sous forme d'objet
+        // Atmosphere uranusAtmosphere = new Atmosphere();
+        // uranusAtmosphere.hydrogene = 82f;
+        // uranusAtmosphere.helium = 15.5f;
+        // uranusAtmosphere.methane = 2.5f;
+        // uranusAtmosphere.nitrogen = 0.5f;
+        // uranusAtmosphere.argon = 0f;
+        // // uranusAtmosphere.carbonDioxide = 0.0001f;
+        // // uranusAtmosphere.sodium = 0.0007f;
+        // uranus.atmosphere = uranusAtmosphere;
 
-        System.out.println(uranus.name + " est composée :");
-        if (uranus.atmosphere.hydrogene != null) {
-            System.out.println("D'hydrogène à " + uranus.atmosphere.hydrogene + "%");
-        }
-        if (uranus.atmosphere.helium != null) {
-            System.out.println("D'hélium à " + uranus.atmosphere.helium + "%");
-        }
-        if (uranus.atmosphere.methane != null) {
-            System.out.println("De méthane à " + uranus.atmosphere.methane + "%");
-        }
-        if (uranus.atmosphere.nitrogen != null) {
-            System.out.println("D'azote à " + uranus.atmosphere.nitrogen + "%");
-        }
-        if (uranus.atmosphere.argon != null) {
-            System.out.println("D'argon à " + uranus.atmosphere.argon + "%");
-        }
-        if (uranus.atmosphere.carbonDioxide != null) {
-            System.out.println("De dioxyde de carbone à " + uranus.atmosphere.carbonDioxide + "%");
-        }
-        if(uranus.atmosphere.sodium != null){
-            System.out.println("De sodium à " + uranus.atmosphere.sodium + "%");
-        }
+        // System.out.println(uranus.name + " est composée :");
+        // if (uranus.atmosphere.hydrogene != null) {
+        //     System.out.println("D'hydrogène à " + uranus.atmosphere.hydrogene + "%");
+        // }
+        // if (uranus.atmosphere.helium != null) {
+        //     System.out.println("D'hélium à " + uranus.atmosphere.helium + "%");
+        // }
+        // if (uranus.atmosphere.methane != null) {
+        //     System.out.println("De méthane à " + uranus.atmosphere.methane + "%");
+        // }
+        // if (uranus.atmosphere.nitrogen != null) {
+        //     System.out.println("D'azote à " + uranus.atmosphere.nitrogen + "%");
+        // }
+        // if (uranus.atmosphere.argon != null) {
+        //     System.out.println("D'argon à " + uranus.atmosphere.argon + "%");
+        // }
+        // if (uranus.atmosphere.carbonDioxide != null) {
+        //     System.out.println("De dioxyde de carbone à " + uranus.atmosphere.carbonDioxide + "%");
+        // }
+        // if(uranus.atmosphere.sodium != null){
+        //     System.out.println("De sodium à " + uranus.atmosphere.sodium + "%");
+        // }
 
         // utilisation de la référence d'objet dans les méthodes
         // Vaisseau fregate = new Vaisseau();
@@ -213,6 +216,22 @@ public class HelloUniverse {
         int qterefusee = vaisseauMonde2.carryCargo(1560);
         System.out.println("La quantité de marchandises refusée est de " + qterefusee);
         vaisseauMonde2.carryCargo(600);
+        System.out.println("---------------------");
+        //map
+        Atmosphere marsAtmosphere = new Atmosphere();
+        marsAtmosphere.constituents.put("CO2", 95f);
+        marsAtmosphere.constituents.put("N2", 2.7f);
+        marsAtmosphere.constituents.put("Ar", 1.6f);
+        marsAtmosphere.constituents.put("NO", 0.013f);
+        marsAtmosphere.constituents.put("CO", 0.08f);
+        marsAtmosphere.constituents.put("H2O", 0.03f);
 
+        System.out.println("l'atmosphère de Mars est composée de:");
+        for ( Map.Entry<String, Float> gaz: marsAtmosphere.constituents.entrySet()) {
+            String key = gaz.getKey();
+            Float value = gaz.getValue();
+            System.out.println(value + "% de " + key);
+            
+        }
     }// end public
 }
