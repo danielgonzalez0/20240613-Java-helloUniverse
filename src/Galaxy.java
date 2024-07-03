@@ -1,9 +1,9 @@
 
 
-import java.util.HashSet;
 import java.util.Set;
+import java.util.TreeSet;
 
 public class Galaxy {
 String name;
-Set<Planet> planets = new HashSet<>();
+Set<Planet> planets = new TreeSet<>();
 }

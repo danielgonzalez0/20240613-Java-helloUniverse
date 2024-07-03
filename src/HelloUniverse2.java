@@ -10,34 +10,47 @@ public class HelloUniverse2 {
 
 
     // instanciation de la classe Planet
-    PlaneteTellurique mercure = new PlaneteTellurique("Mercure", 0);
-    mercure.diameter = 4880;
-    solarSystem.planets.add(mercure);
-    PlaneteTellurique venus = new PlaneteTellurique("Venus", 1);
-    venus.diameter = 12104;
-    solarSystem.planets.add(venus);
     PlaneteTellurique terre = new PlaneteTellurique("Terre", 3);
     terre.diameter = 12742;
+    terre.distanceFromStar = 149.6f;
     solarSystem.planets.add(terre);
-    PlaneteTellurique mars = new PlaneteTellurique("Mars", 4);
-    mars.diameter = 6779;
-    solarSystem.planets.add(mars);
     PlaneteGazeuse jupiter = new PlaneteGazeuse();
     jupiter.name = "Jupiter";
     jupiter.diameter = 142984;
+    jupiter.distanceFromStar = 778.6f;
     solarSystem.planets.add(jupiter);
+    PlaneteTellurique mercure = new PlaneteTellurique("Mercure", 0);
+    mercure.diameter = 4880;
+    mercure.distanceFromStar = 57.9f;
+    solarSystem.planets.add(mercure);
+    PlaneteTellurique venus = new PlaneteTellurique("Venus", 1);
+    venus.diameter = 12104;
+    venus.distanceFromStar = 108.2f;
+    solarSystem.planets.add(venus);
+    PlaneteTellurique mars = new PlaneteTellurique("Mars", 4);
+    mars.diameter = 6779;
+    mars.distanceFromStar = 227.9f;
+    solarSystem.planets.add(mars);
     PlaneteGazeuse saturn = new PlaneteGazeuse();
     saturn.name = "Saturne";
     saturn.diameter = 120536;
+    saturn.distanceFromStar = 1433.5f;
     solarSystem.planets.add(saturn);
-    PlaneteGazeuse uranus = new PlaneteGazeuse();
-    uranus.name = "Uranus";
-    uranus.diameter = 51118;
-    solarSystem.planets.add(uranus);
     PlaneteGazeuse neptune = new PlaneteGazeuse();
     neptune.name = "Neptune";
     neptune.diameter = 49528;
+    neptune.distanceFromStar = 4495.1f;
     solarSystem.planets.add(neptune);
+    PlaneteGazeuse uranus = new PlaneteGazeuse();
+    uranus.name = "Uranus";
+    uranus.diameter = 51118;
+    uranus.distanceFromStar = 2872.5f;
+    solarSystem.planets.add(uranus);
+
+    for (Planet planet : solarSystem.planets) {
+      System.out.println("planete "+ planet.name);
+        
+    }
 
 
 

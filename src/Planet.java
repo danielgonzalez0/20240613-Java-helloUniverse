@@ -1,4 +1,4 @@
-public abstract class Planet {
+public abstract class Planet implements Comparable<Planet>{
 
   String name;
   // String matter;
@@ -7,6 +7,7 @@ public abstract class Planet {
  
   static String form = "sphérique";
   static int nbDiscoveredPlanets;
+  public Float distanceFromStar;
 
   Planet(){
     nbDiscoveredPlanets++;
@@ -51,4 +52,12 @@ public abstract class Planet {
 // }
 // }
 
+    public Atmosphere getAtmosphere() {
+        return atmosphere;
+    }
+
+    @Override
+    public int compareTo(Planet planet) {
+        return this.distanceFromStar.compareTo(planet.distanceFromStar);
+    }
 }
