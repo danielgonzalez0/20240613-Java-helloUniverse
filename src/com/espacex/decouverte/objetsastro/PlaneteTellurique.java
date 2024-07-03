@@ -1,6 +1,9 @@
+package com.espacex.decouverte.objetsastro;
+import com.espacex.decouverte.enginsspatiaux.Vaisseau;
+
 public class PlaneteTellurique extends Planet implements Habitable {
   String MATTER = "tellurique";
-  int totalVisitors;
+ public int totalVisitors;
   // Vaisseau stockedShip;
   int sizeDockingBay;
   Vaisseau[][] stockedSpaceShip;
@@ -27,9 +30,9 @@ public class PlaneteTellurique extends Planet implements Habitable {
 
 
     for (int i = 0; i < ships.length; i++) {
-      if (ships[i] instanceof VaisseauDeGuerre vaisseauDeGuerre) {
-        vaisseauDeGuerre.desactivateWeapons();
-      }
+      // if (ships[i] instanceof VaisseauDeGuerre vaisseauDeGuerre) {
+      //   vaisseauDeGuerre.desactivateWeapons();
+      // }
       // if (this.stockedShip == null){
       // System.out.println("Aucun vaisseau ne s'en va");
       // } else {

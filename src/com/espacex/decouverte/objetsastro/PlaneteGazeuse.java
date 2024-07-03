@@ -1,5 +1,6 @@
+package com.espacex.decouverte.objetsastro;
 public class PlaneteGazeuse extends Planet{
-  String MATTER = "gazeuse";
+  public String MATTER = "gazeuse";
 
     //constructeur
   public PlaneteGazeuse(){

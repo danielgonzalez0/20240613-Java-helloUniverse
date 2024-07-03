@@ -1,5 +1,14 @@
+package com.espacex.decouverte;
 
 import java.util.Map;
+
+import com.espacex.decouverte.enginsspatiaux.TypeVaisseau;
+import com.espacex.decouverte.enginsspatiaux.VaisseauCivil;
+import com.espacex.decouverte.enginsspatiaux.VaisseauDeGuerre;
+import com.espacex.decouverte.objetsastro.Atmosphere;
+import com.espacex.decouverte.objetsastro.Planet;
+import com.espacex.decouverte.objetsastro.PlaneteGazeuse;
+import com.espacex.decouverte.objetsastro.PlaneteTellurique;
 
 
 public class HelloUniverse {

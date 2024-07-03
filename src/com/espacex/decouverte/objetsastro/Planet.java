@@ -1,37 +1,38 @@
+package com.espacex.decouverte.objetsastro;
 public abstract class Planet implements Comparable<Planet>{
 
-  String name;
+ public String name;
   // String matter;
-  long diameter;
+ public long diameter;
   Atmosphere atmosphere;
  
-  static String form = "sphérique";
-  static int nbDiscoveredPlanets;
+ public static String form = "sphérique";
+ public static int nbDiscoveredPlanets;
   public Float distanceFromStar;
 
-  Planet(){
+ public Planet(){
     nbDiscoveredPlanets++;
   };
 
-  Planet(String name){
+  public Planet(String name){
     this.name = name;
     nbDiscoveredPlanets++;
   };
 
   //methode
-  int rotation(int angle){
+  public int rotation(int angle){
     int turn = angle/360;
     System.out.println("Je suis la planète " + name + " et je tourne sur moi-même");
     return turn;
   }
 
-  int revolution(int angle){
+ public  int revolution(int angle){
     int turn = angle/360;
     System.out.println("Je suis la planète " + name + " et je tourne autour de mon étoile");
     return turn;
   }
 
-  static String expansion(double distance){
+ public static String expansion(double distance){
     if(distance >= 14){
       return "Oh la la mais c'est super rapide !";
     }else{

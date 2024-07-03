@@ -1,3 +1,4 @@
+package com.espacex.decouverte.enginsspatiaux;
 
 
 public class VaisseauDeGuerre extends Vaisseau{
@@ -7,10 +8,10 @@ Boolean isWeaponDesactivated = false;
 
 //constructeur
 
-VaisseauDeGuerre(){
+public VaisseauDeGuerre(){
 }
 
-VaisseauDeGuerre(TypeVaisseau type){
+public VaisseauDeGuerre(TypeVaisseau type){
 this.type = type;
 switch (type) {
   case CHASSEUR-> this.maxCargoWeight = 0;
@@ -21,7 +22,7 @@ default -> this.maxCargoWeight = 0;
 }
 
 //méthode
-  void attack(Vaisseau target, String weapon, int attackDuration){
+ public void attack(Vaisseau target, String weapon, int attackDuration){
 
   if(this.isWeaponDesactivated){
     System.out.println("Attaque impossible, l'armement est désactivé");
@@ -35,13 +36,12 @@ target.shielding = target.shielding / 2;
 
   };
 
-void desactivateWeapons(){
+private void desactivateWeapons(){
   this.isWeaponDesactivated = true;
- 
 }
 
 @Override
-void activateShield(){
+public void activateShield(){
 super.activateShield();
 this.desactivateWeapons();
 };
@@ -49,7 +49,7 @@ this.desactivateWeapons();
 
 
 @Override
-int carryCargo(int weight){
+public int carryCargo(int weight){
 
 int newWeight = this.currentCargoWeight + weight;
 

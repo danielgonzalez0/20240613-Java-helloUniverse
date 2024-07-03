@@ -21,6 +21,7 @@ public Voiture() {
 }
 
 public Voiture(String color) {
+  this();
    this.color = color;
 }
 

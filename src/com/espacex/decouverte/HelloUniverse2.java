@@ -1,5 +1,15 @@
+package com.espacex.decouverte;
 
 import java.util.Scanner;
+
+import com.espacex.decouverte.enginsspatiaux.TypeVaisseau;
+import com.espacex.decouverte.enginsspatiaux.Vaisseau;
+import com.espacex.decouverte.enginsspatiaux.VaisseauCivil;
+import com.espacex.decouverte.enginsspatiaux.VaisseauDeGuerre;
+import com.espacex.decouverte.objetsastro.Galaxy;
+import com.espacex.decouverte.objetsastro.Planet;
+import com.espacex.decouverte.objetsastro.PlaneteGazeuse;
+import com.espacex.decouverte.objetsastro.PlaneteTellurique;
 
 public class HelloUniverse2 {
   public static void main(String[] args) {

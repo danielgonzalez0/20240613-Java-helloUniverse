@@ -1,11 +1,12 @@
+package com.espacex.decouverte.enginsspatiaux;
 public class VaisseauCivil extends Vaisseau{
 
   //constructeur
 
-VaisseauCivil(){}
+public VaisseauCivil(){}
 
 
-VaisseauCivil(TypeVaisseau type){
+public VaisseauCivil(TypeVaisseau type){
 this.type = type;
 switch (this.type) {
   case CARGO-> this.maxCargoWeight = 500;
@@ -16,7 +17,7 @@ default -> this.maxCargoWeight = 0;
 
 //méthode
 @Override
-int carryCargo(int weight){
+public int carryCargo(int weight){
 int newWeight = this.currentCargoWeight + weight;
 
   if(this.maxCargoWeight == 0){
