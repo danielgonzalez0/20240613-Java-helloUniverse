@@ -6,6 +6,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "Convertisseur",
+      "request": "launch",
+      "mainClass": "Convertisseur",
+      "projectName": "HelloUniverse_b6e435a2"
+    },
+    {
+      "type": "java",
       "name": "HelloUniverse",
       "request": "launch",
       "mainClass": "com.espacex.decouverte.HelloUniverse",

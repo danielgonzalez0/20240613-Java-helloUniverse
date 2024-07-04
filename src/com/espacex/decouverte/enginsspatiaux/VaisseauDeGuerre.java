@@ -8,11 +8,10 @@ Boolean isWeaponDesactivated = false;
 
 //constructeur
 
-public VaisseauDeGuerre(){
-}
+
 
 public VaisseauDeGuerre(TypeVaisseau type){
-this.type = type;
+super(type);
 switch (type) {
   case CHASSEUR-> this.maxCargoWeight = 0;
   case FREGATE-> this.maxCargoWeight = 50;

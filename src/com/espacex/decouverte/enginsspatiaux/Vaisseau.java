@@ -1,11 +1,16 @@
 package com.espacex.decouverte.enginsspatiaux;
 public abstract class Vaisseau {
-public TypeVaisseau type;
+final public TypeVaisseau type;
 public int nbPassagers;
 public int shielding;
 public int shieldResistance;
 protected  int currentCargoWeight;
 public int maxCargoWeight;
+
+//constructeur
+public Vaisseau(TypeVaisseau type){
+  this.type = type;
+}
 
 //methodes
 

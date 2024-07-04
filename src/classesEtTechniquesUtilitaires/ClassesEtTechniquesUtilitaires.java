@@ -28,11 +28,11 @@ public class ClassesEtTechniquesUtilitaires {
     System.out.println("iAsLong = " + iAsLong);
 
     Voiture peugeot206 = new Voiture();
-    peugeot206.typeBoite = BoiteVitesse.MANUEL;
+    peugeot206.setTypeBoite(BoiteVitesse.MANUEL);
 
-    System.out.println("La voiture est de type " + peugeot206.typeBoite.nomTypeBoite);
-    System.out.println("numero alloué à la boite dans enum " + peugeot206.typeBoite.ordinal());
-    switch (peugeot206.typeBoite) {
+    System.out.println("La voiture est de type " + peugeot206.getTypeBoite().nomTypeBoite);
+    System.out.println("numero alloué à la boite dans enum " + peugeot206.getTypeBoite().ordinal());
+    switch (peugeot206.getTypeBoite()) {
     case AUTO -> System.out.println("C'est une boite automatique");
     case MANUEL -> System.out.println("C'est une boite manuelle");
     case SEMI_AUTO -> System.out.println("C'est une boite semi-automatique");

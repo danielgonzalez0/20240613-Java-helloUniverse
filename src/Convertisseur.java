@@ -29,11 +29,11 @@ public static void main(String[] args) {
 
 
     Voiture car = new Voiture("red");
-    car.nbDoors = 3;
-    car.isAutomatic = true;
+    car.setNbDoors(3);
+    car.setIsAutomatic(true);
     // car.color = "red";
-    String transition = car.isAutomatic ? "automatique" : "manuelle";
-    String message = String.format("la voiture de JP est de couleur %s, a %d portes et est %s", car.color, car.nbDoors, transition);
+    String transition = car.isIsAutomatic() ? "automatique" : "manuelle";
+    String message = String.format("la voiture de JP est de couleur %s, a %d portes et est %s", car.getColor(), car.getNbDoors(), transition);
     System.out.printf(message + "\n");
     Voiture.honk();
     int newSpeed = car.accelerate();
@@ -63,8 +63,8 @@ public static void main(String[] args) {
     System.out.println("Le nombre de roues d'une voiture est de " + Voiture.nbWheels);
 
     VehiculeAMoteur carMichel = new Voiture();
-    ((Voiture)carMichel).isAutomatic = true;
-    System.out.println("La voiture de Michel est " + (((Voiture)carMichel).isAutomatic? "automatique" : "manuelle"));
+    ((Voiture)carMichel).setIsAutomatic(true);
+    System.out.println("La voiture de Michel est " + (((Voiture)carMichel).isIsAutomatic()? "automatique" : "manuelle"));
     // Voiture carMichelGoodType = (Voiture) carMichel;
     // carMichelGoodType.isAutomatic = true;
     // System.out.println("La voiture de Michel est " + (carMichelGoodType.isAutomatic ? "automatique" : "manuelle"));
@@ -77,7 +77,7 @@ public static void main(String[] args) {
     UsineAssemblageVoiture usineVoiture = new UsineAssemblageVoiture();
     System.out.println("Le véhicule assemblé est un " + vehicule.engine.carburation);
     Voiture voiture = usineVoiture.assemble();
-    System.out.println("La voiture assemblée est de couleur " + voiture.color);
+    System.out.println("La voiture assemblée est de couleur " + voiture.getColor());
 
     // polymorphisme sous-typage
 

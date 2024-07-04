@@ -32,7 +32,7 @@ public class TableauxEtCollections {
     // avant Java5 mise en place lourde pour passer un tableau en argument
 
     Voiture peugeot206 = new Voiture();
-    peugeot206.color = "rouge";
+    peugeot206.setColor("rouge");
     Passager passager1 = new Passager();
     passager1.firstName = "Jean";
     passager1.lastName = "Dupont";
@@ -70,15 +70,15 @@ public class TableauxEtCollections {
     list.remove(peugeot206);
 
     Voiture elVoiture = (Voiture) list.get(1);
-    System.out.println("element index 1 = " + elVoiture.color);
+    System.out.println("element index 1 = " + elVoiture.getColor());
 
     // set
     Voiture peugeot208 = new Voiture();
-    peugeot208.color = "vert";
+    peugeot208.setColor("vert");
     Voiture peugeot308 = new Voiture();
-    peugeot308.color = "noir";
+    peugeot308.setColor("noir");
     Voiture peugeot408 = new Voiture();
-    peugeot408.color = "bleu";
+    peugeot408.setColor("bleu");
 
     Set<Voiture> setVoiture = new HashSet<>();
     setVoiture.add(peugeot208);
@@ -87,16 +87,16 @@ public class TableauxEtCollections {
 
     System.out.println("la taille de setVoiture est " + setVoiture.size());
     Voiture setVoitureIndex2 = (Voiture) setVoiture.toArray()[2];
-    System.out.println("la couleur de la voiture est a l'index 2 est " + setVoitureIndex2.color);
+    System.out.println("la couleur de la voiture est a l'index 2 est " + setVoitureIndex2.getColor());
 
     for (Voiture voiture : setVoiture) {
-      System.out.println("la couleur de la voiture est " + voiture.color);
+      System.out.println("la couleur de la voiture est " + voiture.getColor());
     }
 
     Iterator<Voiture> iterator = setVoiture.iterator();
     while (iterator.hasNext()) {
       Voiture v = iterator.next();
-      System.out.println("iterator: la couleur de la voiture est " + v.color);
+      System.out.println("iterator: la couleur de la voiture est " + v.getColor());
     }
 
     // Map
@@ -105,19 +105,19 @@ public class TableauxEtCollections {
     map.put("308", peugeot308);
     map.put("408", peugeot408);
     Voiture voitureCle308 = map.get("308");
-    System.out.println("map : la couleur de la voiture 308 est " + voitureCle308.color);
+    System.out.println("map : la couleur de la voiture 308 est " + voitureCle308.getColor());
 
     for (Map.Entry<String, Voiture> voiture : map.entrySet()) {
       String cle = voiture.getKey();
       Voiture valeur = voiture.getValue();
-      System.out.println("map : la couleur de la voiture " + cle + " est " + valeur.color);
+      System.out.println("map : la couleur de la voiture " + cle + " est " + valeur.getColor());
     }
 
     for (String key : map.keySet()) {
       System.out.println("map : la cle est " + key);
     }
     for (Voiture voiture : map.values()) {
-      System.out.println("map : la couleur de la voiture est " + voiture.color);
+      System.out.println("map : la couleur de la voiture est " + voiture.getColor());
     }
 
     System.out.println("la map est elle vide ? " + map.isEmpty());
@@ -168,7 +168,7 @@ mapCarres.put(new Carre(1L), peugeot408);
 for (Map.Entry<Carre, Voiture> carre : mapCarres.entrySet()) {
   Carre cle = carre.getKey();
   Voiture valeur = carre.getValue();
-  System.out.println("mapCarres : " + cle.cote + " " + valeur.color);
+  System.out.println("mapCarres : " + cle.cote + " " + valeur.getColor());
 }
 
   }

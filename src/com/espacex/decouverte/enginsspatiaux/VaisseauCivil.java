@@ -3,11 +3,8 @@ public class VaisseauCivil extends Vaisseau{
 
   //constructeur
 
-public VaisseauCivil(){}
-
-
 public VaisseauCivil(TypeVaisseau type){
-this.type = type;
+super(type);
 switch (this.type) {
   case CARGO-> this.maxCargoWeight = 500;
   case VAISSEAU_MONDE-> this.maxCargoWeight = 2000;

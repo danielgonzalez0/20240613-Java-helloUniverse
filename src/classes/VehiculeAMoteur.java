@@ -15,6 +15,7 @@ public VehiculeAMoteur (Moteur engine){
 }
 
 //methode
+
   public int accelerate(){
   System.out.println("J'accélère");
   return 100;
@@ -26,8 +27,21 @@ public VehiculeAMoteur (Moteur engine){
   return newSpeed;
  }
 
+
+/**
+ * Transporte un passager d'une ville de départ à une destination, en passant par des villes étapes.
+ * <p>
+ * Imprime le nom du passager, la ville de départ, et la première ville étape. Retourne la ville de destination finale.
+ * </p>
+ * 
+ * @param passager Le passager à transporter.
+ * @param villeDepart La ville de départ du voyage.
+ * @param villesEtapes Les villes étapes du voyage.
+ * @return La ville de destination finale.
+ */ 
  public Ville transport(Passager passager, Ville villeDepart, Ville...villesEtapes){
-  Ville destination = new Ville();
+  final Ville destination;
+  destination = new Ville();
   destination.name = "Paris";
   System.out.println("Je transporte " + passager.firstName + " " + passager.lastName);
   System.out.println("Le passager est partie de "+ villeDepart.name);

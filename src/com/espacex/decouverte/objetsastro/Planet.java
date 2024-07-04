@@ -20,13 +20,13 @@ public abstract class Planet implements Comparable<Planet>{
   };
 
   //methode
-  public int rotation(int angle){
+  final public int rotation(int angle){
     int turn = angle/360;
     System.out.println("Je suis la planète " + name + " et je tourne sur moi-même");
     return turn;
   }
 
- public  int revolution(int angle){
+ final public int revolution(int angle){
     int turn = angle/360;
     System.out.println("Je suis la planète " + name + " et je tourne autour de mon étoile");
     return turn;
