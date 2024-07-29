@@ -1,7 +1,5 @@
 package com.espacex.decouverte;
 
-import java.util.Scanner;
-
 import com.espacex.decouverte.enginsspatiaux.TypeVaisseau;
 import com.espacex.decouverte.enginsspatiaux.Vaisseau;
 import com.espacex.decouverte.enginsspatiaux.VaisseauCivil;
@@ -10,6 +8,8 @@ import com.espacex.decouverte.objetsastro.Galaxy;
 import com.espacex.decouverte.objetsastro.Planet;
 import com.espacex.decouverte.objetsastro.PlaneteGazeuse;
 import com.espacex.decouverte.objetsastro.PlaneteTellurique;
+import java.util.InputMismatchException;
+import java.util.Scanner;
 
 public class HelloUniverse2 {
   public static void main(String[] args) {
@@ -130,14 +130,22 @@ public class HelloUniverse2 {
         if (planete != null) {
           System.out.println("Vous avez choisi la planète " + planete.name);
         }
-
-        System.out.println("Quelle tonnage de cargaison souhaitez-vous transporter ?");
-        int tonnage = sc.nextInt();
-        sc.nextLine();
-
-        System.out.println("Vous avez choisi de transporter " + tonnage + " tonnes de cargaison");
-
- 
+int tonnage;
+        
+        while (true) { 
+          try{
+            System.out.println("Quelle tonnage de cargaison souhaitez-vous transporter ?");
+            tonnage = sc.nextInt(); 
+            System.out.println("Vous avez choisi de transporter " + tonnage + " tonnes de cargaison");
+            break;
+          } catch (InputMismatchException e) {
+            System.out.println("Veuillez entrer un nombre entier");
+          }
+          finally {
+            sc.nextLine();
+          }
+        }
+        
         planete.welcomeSpaceship(vaisseau);
         
         

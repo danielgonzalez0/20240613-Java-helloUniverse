@@ -1,7 +1,6 @@
 package com.espacex.decouverte;
 
-import java.util.Map;
-
+import com.espacex.decouverte.enginsspatiaux.DeppassementTonnageException;
 import com.espacex.decouverte.enginsspatiaux.TypeVaisseau;
 import com.espacex.decouverte.enginsspatiaux.VaisseauCivil;
 import com.espacex.decouverte.enginsspatiaux.VaisseauDeGuerre;
@@ -9,6 +8,7 @@ import com.espacex.decouverte.objetsastro.Atmosphere;
 import com.espacex.decouverte.objetsastro.Planet;
 import com.espacex.decouverte.objetsastro.PlaneteGazeuse;
 import com.espacex.decouverte.objetsastro.PlaneteTellurique;
+import java.util.Map;
 
 
 public class HelloUniverse {
@@ -207,24 +207,36 @@ public class HelloUniverse {
 
         // methode abstraite et classe abstraite
         earth.welcomeSpaceship(chasseur);
-        chasseur.carryCargo(20);
+        try {
+            chasseur.carryCargo(20);
+        } catch (DeppassementTonnageException e) {
+            System.out.println(e.getMessage());
+        }
 
         VaisseauDeGuerre fregate = new VaisseauDeGuerre(TypeVaisseau.FREGATE);
         fregate.nbPassagers = 100;
         earth.welcomeSpaceship(fregate);
-        int fregateQuantiteRefusee = fregate.carryCargo(45);
-        System.out.println("La quantité de marchandises refusée est de " + fregateQuantiteRefusee);
-        fregate.carryCargo(12);
+        
+        try {
+            fregate.carryCargo(45);
+            fregate.carryCargo(12);
+        } catch (DeppassementTonnageException e) {
+            System.out.println(e.getMessage());
+        }
         VaisseauDeGuerre fregate2 = new VaisseauDeGuerre(TypeVaisseau.FREGATE);
         VaisseauCivil vaisseauMonde2 = new VaisseauCivil(TypeVaisseau.VAISSEAU_MONDE);
         fregate2.nbPassagers = 14;
         System.out.println("---------------------");
         earth.welcomeSpaceship(fregate2, vaisseauMonde2);
         // earth.welcomeSpaceship(vaisseauMonde2);
-        fregate2.carryCargo(30);
-        int qterefusee = vaisseauMonde2.carryCargo(1560);
-        System.out.println("La quantité de marchandises refusée est de " + qterefusee);
-        vaisseauMonde2.carryCargo(600);
+
+        try {
+            fregate2.carryCargo(30);
+          vaisseauMonde2.carryCargo(1560);
+            vaisseauMonde2.carryCargo(600);
+        } catch (DeppassementTonnageException e) {
+            System.out.println(e.getMessage());
+        }
         System.out.println("---------------------");
         //map
         Atmosphere marsAtmosphere = new Atmosphere();

@@ -11,10 +11,10 @@ public int maxCargoWeight;
 public Vaisseau(TypeVaisseau type){
   this.type = type;
 }
-
+  
 //methodes
 
-public abstract int carryCargo(int weight); 
+public abstract void carryCargo(int weight) throws DeppassementTonnageException; 
 
 public void activateShield(){
   System.out.println("Activation du bouclier d'un vaiseau de type " + this.type);

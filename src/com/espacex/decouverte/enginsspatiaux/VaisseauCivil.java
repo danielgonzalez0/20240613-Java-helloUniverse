@@ -14,28 +14,21 @@ default -> this.maxCargoWeight = 0;
 
 //méthode
 @Override
-public int carryCargo(int weight){
+public void carryCargo(int weight) throws DeppassementTonnageException{
 int newWeight = this.currentCargoWeight + weight;
+int tonnageEnExces = newWeight - this.maxCargoWeight;
 
   if(this.maxCargoWeight == 0){
     System.out.println("Ce vaisseau n'est pas conçu pour transporter des marchandises, quantité refusée: " + weight);
-    return weight;
   }
 
-  if(this.maxCargoWeight < weight ){
-    System.out.println("Le poids de la cargaison est trop important pour ce vaisseau, quantité refusée:  " + (weight - this.maxCargoWeight));
-    return weight - this.maxCargoWeight;
+  if(this.maxCargoWeight < weight || newWeight > this.maxCargoWeight){
+    throw new DeppassementTonnageException(tonnageEnExces);
   }
-
-if(newWeight > this.maxCargoWeight){
-  int refusedWeight = newWeight - this.maxCargoWeight;
-  System.out.println("Le poids de la cargaison est trop important pour ce vaisseau, quantité refusée: " + refusedWeight);
-  return refusedWeight;
-}
 
 this.currentCargoWeight = newWeight;
 System.out.println("Le vaisseau de type " + this.type + " peut transporter " + weight + " tonnes de marchandises");
-return 0;
+
 
 };
 }

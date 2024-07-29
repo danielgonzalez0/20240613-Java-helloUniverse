@@ -78,7 +78,8 @@ public static void main(String[] args) {
     System.out.println("Le véhicule assemblé est un " + vehicule.engine.carburation);
     Voiture voiture = usineVoiture.assemble();
     System.out.println("La voiture assemblée est de couleur " + voiture.getColor());
-
+Voiture voiture2 = usineVoiture.assemble();
+System.out.println("l'immatriculation de la voiture est " + voiture2.getImmatriculation());
     // polymorphisme sous-typage
 
     // Voiture peugeot206 = new Voiture();
